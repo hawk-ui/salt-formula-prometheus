@@ -34,9 +34,12 @@ prometheus_server_alerts_file:
 
 {%- if not server.get('is_container', True) %}
 
-{% for pkg, args in server.pkgs.items() %}
-prometheus_server_package_{{ pkg }}:
-  pkg.installed: {{ args }}
+prometheus_package:
+  pkg.installed: {{ server.pkgs.prometheus }}
+
+{% if server.pkgs.promu %}
+promu_package:
+  pkg.installed: {{ server.pkgs.promu }}
 {% endfor %}
 
 prometheus_server_default_file:
