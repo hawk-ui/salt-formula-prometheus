@@ -40,7 +40,7 @@ prometheus_package:
 {% if server.pkgs.promu %}
 promu_package:
   pkg.installed: {{ server.pkgs.promu }}
-{% endfor %}
+{% endif %}
 
 prometheus_server_default_file:
   file.managed:
