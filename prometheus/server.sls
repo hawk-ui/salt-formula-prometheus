@@ -39,11 +39,6 @@ prometheus_server_alerts_file:
   pkgrepo.managed: {{ args }}
 {% endfor %}
 
-{% if server.pkgs_repo %}
-promu_package:
-  pkg.installed: {{ server.pkgs.promu }}
-{% endif %}
-
 prometheus_package:
   pkg.installed: {{ server.pkgs.prometheus }}
 
