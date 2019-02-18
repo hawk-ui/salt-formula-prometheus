@@ -1,6 +1,8 @@
 {% set server = salt['grains.filter_by']({
   'default': {
     'version': 2.0,
+    'pkgs_repo': {
+    },
     'pkgs': {
       'prometheus': {
       },
