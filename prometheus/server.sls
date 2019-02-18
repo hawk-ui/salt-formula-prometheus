@@ -89,7 +89,7 @@ prometheus_server_service:
       - file: prometheus_server_alerts_file
     - require:
       - file: prometheus_server_data_dir
-      - pkg: prometheus_server_packages
+      - pkg: prometheus_package
 
 {%- endif %}
 
