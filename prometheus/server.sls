@@ -34,17 +34,17 @@ prometheus_server_alerts_file:
 
 {%- if not server.get('is_container', True) %}
 
-{%- if server.pkgs_repo is defined %}
-{% for repo, args in server.pkgs_repo.items() %}
+{%- if server.get('pkgs_repo') %}
+{%- for repo, args in server.pkgs_repo.items() %}
 {{ repo }}:
   pkgrepo.managed: {{ args }}
-{% endfor %}
-{%- endif %}}
+{%- endfor %}
+{%- endif %}
 
 prometheus_package:
   pkg.installed: {{ server.pkgs.prometheus }}
 
-{%- if server.pkgs.promu is defined %}
+{%- if server.get('pkgs', {}).get('promu') %}
 promu_package:
   pkg.installed: {{ server.pkgs.promu }}
 {%- endif %}
